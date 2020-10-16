@@ -15,11 +15,11 @@ public class Adult extends Person {
     }
 
 
-    public String getPassportSerial() {
+    public String getPassportSeria() {
         return passportSerial;
     }
 
-    public void setPassportSerial(String passportSerial) {
+    public void setPassportSeria(String passportSerial) {
         this.passportSerial = passportSerial;
     }
 

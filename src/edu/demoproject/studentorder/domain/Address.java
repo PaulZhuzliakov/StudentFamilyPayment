@@ -6,8 +6,11 @@ public class Address {
     private String building;
     private String extension;
     private String apartment;
-    private String niversity;
+    private String university;
     private String studentId;
+
+    public Address(String postCode, String street, String building, String extension, String apartment) {
+    }
 
     public String getPostCode() {
         return postCode;

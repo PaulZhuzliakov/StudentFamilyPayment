@@ -1,11 +1,15 @@
 package edu.demoproject.studentorder;
 
 import edu.demoproject.studentorder.domain.*;
+import edu.demoproject.studentorder.domain.register.AnswerCityRegister;
 import edu.demoproject.studentorder.mail.MailSender;
 import edu.demoproject.studentorder.validator.ChildrenValidator;
 import edu.demoproject.studentorder.validator.CityRegisterValidator;
 import edu.demoproject.studentorder.validator.StudentValidator;
 import edu.demoproject.studentorder.validator.WeddingValidator;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class StudentOrderValidator {
 
@@ -29,34 +33,29 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        StudentOrder[] soArray = readStudentOrders();
+        List<StudentOrder> soList = readStudentOrders();
 
-//        for (int i = 0; i < soArray.length; i++) {
-//            System.out.println(" ");
-//            checkOneOrder(soArray[i]);
-//        }
-        for (StudentOrder so : soArray) {
-            System.out.println(" ");
+        for (StudentOrder so : soList) {
             checkOneOrder(so);
-
         }
     }
 
-    public StudentOrder[] readStudentOrders() {
-        StudentOrder[] soArray = new StudentOrder[3];
+    public List<StudentOrder> readStudentOrders() {
+        List<StudentOrder> soList = new LinkedList<>();
 
-        for (int i = 0; i < soArray.length; i++) {
-            soArray[i] = SaveStudentOrder.buildStudentOrder(i);
+        for (int i = 0; i < 5; i++) {
+            StudentOrder so = SaveStudentOrder.buildStudentOrder(i);
+            soList.add(so);
         }
-        return soArray;
+        return soList;
     }
 
     public void checkOneOrder(StudentOrder so) {
         AnswerCityRegister cityAnswer = checkCityRegister(so);
-        AnswerWedding weddingAnswer = checkWedding(so);
-        AnswerChildren childAnswer = checkChildren(so);
-        AnswerStudent studentAnswer = checkStudent(so);
-        sendMail(so);
+//        AnswerWedding weddingAnswer = checkWedding(so);
+//        AnswerChildren childAnswer = checkChildren(so);
+//        AnswerStudent studentAnswer = checkStudent(so);
+//        sendMail(so);
     }
 
 
